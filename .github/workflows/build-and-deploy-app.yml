@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
 
 env:
-  AZURE_ACR_NAME: acrauaecontainerapps.azurecr.io
+  AZURE_ACR_NAME: acrauaecontainerapps
   AZURE_RESOURCEGROUP_NAME: rg-auae-containerapps
   CONTAINERAPP_NAME: containerappsalbumapicsharp
 
