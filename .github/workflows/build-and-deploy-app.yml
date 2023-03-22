@@ -25,5 +25,5 @@ jobs:
         with:
           appSourcePath: ${{ github.workspace }}/src
           acrName: ${{ env.AZURE_ACR_NAME }}
-          containerAppName: ${{ env.AZURE_RESOURCEGROUP_NAME }}
-          resourceGroup: ${{ env.CONTAINERAPP_NAME }}
+          containerAppName: ${{ env.CONTAINERAPP_NAME }}
+          resourceGroup: ${{ env.AZURE_RESOURCEGROUP_NAME }}
