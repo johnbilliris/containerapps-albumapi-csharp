@@ -1,0 +1,27 @@
+name: Deploy Album API application to Azure Container App
+
+on:
+  workflow_dispatch:
+
+env:
+  AZURE_ACR_NAME: acrauaecontainerapps.azureacr.io
+  AZURE_RESOURCEGROUP_NAME: rg-auae-containerapps
+  CONTAINERAPP_NAME: containerappsalbumapicsharp
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Log in to Azure
+        uses: azure/login@v1
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+      - name: Build and deploy Container App
+        uses: azure/container-apps-deploy-action@v0
+        with:
+          appSourcePath: ${{ github.workspace }}/src
+          acrName: ${{ env.AZURE_ACR_NAME }}
+          containerAppName: ${{ env.AZURE_RESOURCEGROUP_NAME }}
+          resourceGroup: ${{ env.CONTAINERAPP_NAME }}
